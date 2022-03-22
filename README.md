@@ -20,8 +20,8 @@ apt install bash -y
 apt install yarn -y
 apt install ffmpeg -y
 apt install imagemagick -y
-git clone https://github.com/jetushack1/popat
-cd popat
+https://github.com/jetushack4/tokio-bot-v2
+cd tokio-bot-v2
 rm -rf session.json
 rm -rf session.data.json
 yarn start
@@ -56,10 +56,11 @@ apt install wget curl git ffmpeg yarn imagemagick build-essential libcairo2-dev 
 ubuntu
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 apt install -y nodejs gcc g++ make
-https://github.com/jetushack1/popat
-cd popat
-yarn install
-yarn upgrade
+https://github.com/jetushack4/tokio-bot-v2
+cd tokio-bot-v2
+rm -rf session.json
+rm -rf session.data.json
+yarn start
 ```
 
 ---------
@@ -72,13 +73,17 @@ yarn upgrade
 * Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
 
 ```bash
-https://github.com/jetushack1/popat
-cd popat
+
+https://github.com/jetushack4/tokio-bot-v2
+cd tokio-bot-v2
+rm -rf session.json
+rm -rf session.data.json
 npm install --global yarn
 npm install -g yarn
 choco install yarn
 yarn install
 yarn upgrade
+yarn start
 ```
 
 ---------
