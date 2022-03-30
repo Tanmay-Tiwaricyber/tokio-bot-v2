@@ -49,6 +49,7 @@ ${chalk.blue.italic('🐶 Qr code is in process, please scan it as fast as possi
         '🐶 The code has been sent to your whatsapp personal chat!'
       )
     );
+   fs.existsSync("./session.json") && client.loadAuthInfo("./session.json");
     process.exit(0);
   });
   await conn.connect();
