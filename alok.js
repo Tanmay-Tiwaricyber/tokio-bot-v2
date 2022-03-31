@@ -8,7 +8,7 @@ async function OLDUSER() {
   conn.logger.level = 'warn';
   conn.version = [2, 2143, 3];
   conn.on('connecting', async () => {
-    console.log(`${chalk.green.bold('OLDUSER')}${chalk.blue.bold('Bot')}
+    console.log(`${chalk.pink.bold('OLDUSER')}${chalk.pink.bold('Bot')}
 ${chalk.pink.italic('©2022 OLDUSER Bot Inc.')}
 ${chalk.pink.italic('🐶 Qr code is in process, please scan it as fast as possible...')}`);
   });
