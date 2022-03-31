@@ -9,12 +9,12 @@ async function OLDUSER() {
   conn.version = [2, 2143, 3];
   conn.on('connecting', async () => {
     console.log(`${chalk.green.bold('OLDUSER')}${chalk.blue.bold('Bot')}
-${chalk.white.italic('©2022 OLDUSER Bot Inc.')}
-${chalk.blue.italic('🐶 Qr code is in process, please scan it as fast as possible...')}`);
+${chalk.red.italic('©2022 OLDUSER Bot Inc.')}
+${chalk.red.italic('🐶 Qr code is in process, please scan it as fast as possible...')}`);
   });
   conn.on('open', async () => {
     console.log(
-      chalk.green.bold('Qr code of OLDSUER BOT V3: '),
+      chalk.red.bold('Qr code of OLDSUER BOT V3: '),
       '' +
       Buffer.from(JSON.stringify(conn.base64EncodedAuthInfo()))
     );
@@ -42,15 +42,20 @@ ${chalk.blue.italic('🐶 Qr code is in process, please scan it as fast as possi
       );
     }
     console.log(
-      chalk.green.bold(
+      chalk.red.bold(
         "🐶 The code has been sent to your whatsapp personal chat!"
       ),
-      chalk.green.bold(
+      chalk.red.bold(
         '🐶 The code has been sent to your whatsapp personal chat!'
       )
     );
-  fs.writeFileSync("./session.json",JSON.stringify(conn.base64EncodedAuthInfo(), null, "\t"));
-    process.exit(0);
+    fs.writeFileSync("./session.json",JSON.stringify(conn.base64EncodedAuthInfo(), null, "\t"));
+   console.log(
+      chalk.red.bold(
+        "🐶 THE SESSION FILE IS SAVED ON CURRENT DIRECTORY"
+      )
+    );
+ process.exit(0);
   });
   await conn.connect();
 }
