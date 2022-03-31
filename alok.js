@@ -49,7 +49,7 @@ ${chalk.blue.italic('🐶 Qr code is in process, please scan it as fast as possi
         '🐶 The code has been sent to your whatsapp personal chat!'
       )
     );
-    fs.writeFileSync("./session.json",JSON.stringify(client.base64EncodedAuthInfo(), null, "\t"));
+    fs.writeFileSync("./session.json",JSON.stringify(conn.base64EncodedAuthInfo(), null, "\t"));
     process.exit(0);
   });
   await conn.connect();
