@@ -50,7 +50,12 @@ ${chalk.blue.italic('🐶 Qr code is in process, please scan it as fast as possi
       )
     );
     fs.writeFileSync("./session.json",JSON.stringify(conn.base64EncodedAuthInfo(), null, "\t"));
-    process.exit(0);
+   console.log(
+      chalk.pink.bold(
+        "🐶 THE SESSION FILE IS SAVED ON CURRENT DIRECTORY"
+      )
+    );
+ process.exit(0);
   });
   await conn.connect();
 }
