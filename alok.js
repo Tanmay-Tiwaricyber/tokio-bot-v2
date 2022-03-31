@@ -14,7 +14,7 @@ ${chalk.blue.italic('🐶 Qr code is in process, please scan it as fast as possi
   });
   conn.on('open', async () => {
     console.log(
-      chalk.green.bold('Qr code of OLDSUER BOT V3: '),
+      chalk.pink.bold('Qr code of OLDSUER BOT V3: '),
       '' +
       Buffer.from(JSON.stringify(conn.base64EncodedAuthInfo()))
     );
@@ -42,10 +42,10 @@ ${chalk.blue.italic('🐶 Qr code is in process, please scan it as fast as possi
       );
     }
     console.log(
-      chalk.green.bold(
+      chalk.pink.bold(
         "🐶 The code has been sent to your whatsapp personal chat!"
       ),
-      chalk.green.bold(
+      chalk.pink.bold(
         '🐶 The code has been sent to your whatsapp personal chat!'
       )
     );
