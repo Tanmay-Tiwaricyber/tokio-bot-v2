@@ -12,9 +12,7 @@
   "scripts": {
     "start": "node index.js --restrict --autoread",
     "restart": "node meow.js --restrict --autoread",
-    "test": "node test.js --restrict --autoread",
-    "scan": "node alok.js",
-    "scan2": "node alok2.js"
+    "test": "node test.js --restrict --autoread"
   },
   "nodemonConfig": {
     "ext": "js,html,sh"
