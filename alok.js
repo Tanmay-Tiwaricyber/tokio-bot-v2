@@ -8,13 +8,13 @@ async function OLDUSER() {
   conn.logger.level = 'warn';
   conn.version = [2, 2143, 3];
   conn.on('connecting', async () => {
-    console.log(`${chalk.pink.bold('OLDUSER')}${chalk.pink.bold('Bot')}
-${chalk.pink.italic('©2022 OLDUSER Bot Inc.')}
-${chalk.pink.italic('🐶 Qr code is in process, please scan it as fast as possible...')}`);
+    console.log(`${chalk.magenta.bold('OLDUSER')}${chalk.magenta.bold('Bot')}
+${chalk.magenta.italic('©2022 OLDUSER Bot Inc.')}
+${chalk.magenta.italic('🐶 Qr code is in process, please scan it as fast as possible...')}`);
   });
   conn.on('open', async () => {
     console.log(
-      chalk.pink.bold('Qr code of OLDSUER BOT V3: '),
+      chalk.magenta.bold('Qr code of OLDSUER BOT V3: '),
       '' +
       Buffer.from(JSON.stringify(conn.base64EncodedAuthInfo()))
     );
@@ -42,16 +42,16 @@ ${chalk.pink.italic('🐶 Qr code is in process, please scan it as fast as possi
       );
     }
     console.log(
-      chalk.pink.bold(
+      chalk.magenta.bold(
         "🐶 The code has been sent to your whatsapp personal chat!"
       ),
-      chalk.pink.bold(
+      chalk.magenta.bold(
         '🐶 The code has been sent to your whatsapp personal chat!'
       )
     );
     fs.writeFileSync("./session.json",JSON.stringify(conn.base64EncodedAuthInfo(), null, "\t"));
    console.log(
-      chalk.pink.bold(
+      chalk.magenta.bold(
         "🐶 THE SESSION FILE IS SAVED ON CURRENT DIRECTORY"
       )
     );
