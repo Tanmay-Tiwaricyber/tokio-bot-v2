@@ -38,10 +38,10 @@ if (m.quoted) {
 handler.help = ['add/+'].map(v => v + ' number,number')
 handler.tags = ['admin']
 handler.command = /^(add|\+)$/i
-handler.owner = false
-handler.rowner = false
+handler.owner = true
+handler.rowner = true
 handler.mods = false
-handler.premium = true
+handler.premium = false
 handler.group = true
 handler.private = false
 
@@ -52,4 +52,3 @@ handler.fail = null
 handler.limit = true
 
 module.exports = handler
-
