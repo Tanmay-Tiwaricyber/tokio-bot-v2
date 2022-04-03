@@ -11,7 +11,7 @@ handler.help = ['remove'].map(v => v + ' @user')
 handler.tags = ['admin']
 handler.command = /^(remove|\-)$/i
 
-handler.owner = true
+handler.owner = false
 handler.rowner = true
 handler.mods = false
 handler.premium = false

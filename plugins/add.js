@@ -38,7 +38,7 @@ if (m.quoted) {
 handler.help = ['add/+'].map(v => v + ' number,number')
 handler.tags = ['admin']
 handler.command = /^(add|\+)$/i
-handler.owner = true
+handler.owner = false
 handler.rowner = true
 handler.mods = false
 handler.premium = false
