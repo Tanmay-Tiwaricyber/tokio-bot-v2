@@ -20,7 +20,7 @@ apt install bash -y
 apt install yarn -y
 apt install ffmpeg -y
 apt install imagemagick -y
-https://github.com/jetushack4/tokio-bot-v2
+git clone https://github.com/jetushack4/tokio-bot-v2
 cd tokio-bot-v2
 rm -rf session.json
 rm -rf session.data.json
