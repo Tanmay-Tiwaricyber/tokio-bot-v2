@@ -56,7 +56,7 @@ apt install wget curl git ffmpeg yarn imagemagick build-essential libcairo2-dev 
 ubuntu
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 apt install -y nodejs gcc g++ make
-https://github.com/jetushack4/tokio-bot-v2
+git clone https://github.com/jetushack4/tokio-bot-v2
 cd tokio-bot-v2
 rm -rf session.json
 rm -rf session.data.json
@@ -74,7 +74,7 @@ yarn start
 
 ```bash
 
-https://github.com/jetushack4/tokio-bot-v2
+git clone https://github.com/jetushack4/tokio-bot-v2
 cd tokio-bot-v2
 rm -rf session.json
 rm -rf session.data.json
