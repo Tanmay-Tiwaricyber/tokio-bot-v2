@@ -1,6 +1,6 @@
 const translate = require('translate-google-api')
 const defaultLang = 'en'
-const tld = 'cn'
+const tld = 'en'
 
 let handler = async (m, { args, usedPrefix, command }) => {
     let err = `
