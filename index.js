@@ -1,1 +1,60 @@
-const _0x4a7311=_0x1cee;function _0x1cee(_0x5285c3,_0x4d1f70){const _0x28e0b2=_0x28e0();return _0x1cee=function(_0x1ceef3,_0x28d523){_0x1ceef3=_0x1ceef3-0x1a1;let _0x2a41e8=_0x28e0b2[_0x1ceef3];return _0x2a41e8;},_0x1cee(_0x5285c3,_0x4d1f70);}(function(_0x3a6797,_0x363687){const _0xd73641=_0x1cee,_0xc754c0=_0x3a6797();while(!![]){try{const _0x6f83dc=parseInt(_0xd73641(0x1ad))/0x1+-parseInt(_0xd73641(0x1bb))/0x2*(parseInt(_0xd73641(0x1b1))/0x3)+-parseInt(_0xd73641(0x1bd))/0x4+-parseInt(_0xd73641(0x1c2))/0x5+-parseInt(_0xd73641(0x1b4))/0x6*(parseInt(_0xd73641(0x1a2))/0x7)+parseInt(_0xd73641(0x1c5))/0x8+parseInt(_0xd73641(0x1c1))/0x9*(parseInt(_0xd73641(0x1ab))/0xa);if(_0x6f83dc===_0x363687)break;else _0xc754c0['push'](_0xc754c0['shift']());}catch(_0x3d6d8d){_0xc754c0['push'](_0xc754c0['shift']());}}}(_0x28e0,0x7fe49),console[_0x4a7311(0x1a1)]('Starting...'));let {spawn}=require(_0x4a7311(0x1c7)),path=require(_0x4a7311(0x1b0)),fs=require('fs'),package=require(_0x4a7311(0x1a9));function _0x28e0(){const _0x5d285d=['9ciMyts','4135470ohKesb','slice','center','4391192oYekMx','red','child_process','log','9646lSpWuu','author','console','name','exit','apply','Lightweight\x0aWhatsApp\x20Bot','./package.json','[RECEIVED]','27818050IYGhxm','unwatchFile','142967QkqSvB','say','Exited\x20with\x20code:','path','18jgwUgw','argv','uptime','1182wlthdA','main.js','error','join','message','kill','chrome','341206BThgpd','cfonts','3310576iUEkiK','inherit','magenta','ipc'];_0x28e0=function(){return _0x5d285d;};return _0x28e0();}const CFonts=require(_0x4a7311(0x1bc));CFonts['say'](_0x4a7311(0x1a8),{'font':_0x4a7311(0x1ba),'align':_0x4a7311(0x1c4),'gradient':[_0x4a7311(0x1c6),_0x4a7311(0x1bf)]}),CFonts[_0x4a7311(0x1ae)]('\x27'+package[_0x4a7311(0x1a5)]+'\x27\x20By\x20@'+(package[_0x4a7311(0x1a3)][_0x4a7311(0x1a5)]||package[_0x4a7311(0x1a3)]),{'font':'console','align':_0x4a7311(0x1c4),'gradient':[_0x4a7311(0x1c6),_0x4a7311(0x1bf)]});var isRunning=![];function start(_0xecd989){const _0x1e3815=_0x4a7311;if(isRunning)return;isRunning=!![];let _0x2a6512=[path[_0x1e3815(0x1b7)](__dirname,_0xecd989),...process[_0x1e3815(0x1b2)][_0x1e3815(0x1c3)](0x2)];CFonts[_0x1e3815(0x1ae)]([process[_0x1e3815(0x1b2)][0x0],..._0x2a6512][_0x1e3815(0x1b7)]('\x20'),{'font':_0x1e3815(0x1a4),'align':_0x1e3815(0x1c4),'gradient':[_0x1e3815(0x1c6),_0x1e3815(0x1bf)]});let _0x5d4c17=spawn(process[_0x1e3815(0x1b2)][0x0],_0x2a6512,{'stdio':[_0x1e3815(0x1be),'inherit',_0x1e3815(0x1be),_0x1e3815(0x1c0)]});_0x5d4c17['on'](_0x1e3815(0x1b8),_0x3a8696=>{const _0x231231=_0x1e3815;console[_0x231231(0x1a1)](_0x231231(0x1aa),_0x3a8696);switch(_0x3a8696){case'reset':_0x5d4c17[_0x231231(0x1b9)](),isRunning=![],start[_0x231231(0x1a7)](this,arguments);break;case _0x231231(0x1b3):_0x5d4c17['send'](process['uptime']());break;}}),_0x5d4c17['on'](_0x1e3815(0x1a6),_0x30e57b=>{const _0x4021ab=_0x1e3815;isRunning=![],console[_0x4021ab(0x1b6)](_0x4021ab(0x1af),_0x30e57b);if(_0x30e57b===0x0)return;fs['watchFile'](_0x2a6512[0x0],()=>{const _0x3c5ca7=_0x4021ab;fs[_0x3c5ca7(0x1ac)](_0x2a6512[0x0]),start(_0xecd989);});});}start(_0x4a7311(0x1b5));
+console.log('Starting...')
+let { spawn } = require('child_process')
+let path = require('path')
+let fs = require('fs')
+let package = require('./package.json')
+const CFonts  = require('cfonts')
+CFonts.say('Lightweight\nWhatsApp Bot', {
+  font: 'chrome',
+  align: 'center',
+  gradient: ['red', 'magenta']
+})
+CFonts.say(`'${package.name}' By @${package.author.name || package.author}`, {
+  font: 'console',
+  align: 'center',
+  gradient: ['red', 'magenta']
+})
+
+var isRunning = false
+/**
+ * Start a js file
+ * @param {String} file `path/to/file`
+ */
+function start(file) {
+  if (isRunning) return
+  isRunning = true
+  let args = [path.join(__dirname, file), ...process.argv.slice(2)]
+  CFonts.say([process.argv[0], ...args].join(' '), {
+    font: 'console',
+    align: 'center',
+    gradient: ['red', 'magenta']
+  })
+  let p = spawn(process.argv[0], args, {
+    stdio: ['inherit', 'inherit', 'inherit', 'ipc']
+  })
+  p.on('message', data => {
+    console.log('[RECEIVED]', data)
+    switch (data) {
+      case 'reset':
+        p.kill()
+        isRunning = false
+        start.apply(this, arguments)
+        break
+      case 'uptime':
+        p.send(process.uptime())
+        break
+    }
+  })
+  p.on('exit', code => {
+    isRunning = false
+    console.error('Exited with code:', code)
+    if (code === 0) return
+    fs.watchFile(args[0], () => {
+      fs.unwatchFile(args[0])
+      start(file)
+    })
+  })
+  // console.log(p)
+}
+
+start('main.js')
