@@ -71,7 +71,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     case 'antilink':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
+          global.dfail('admin','owner','rowner', m, conn)
           throw false
         }
       }
