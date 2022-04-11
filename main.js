@@ -49,15 +49,13 @@ global.db = new Low(
 )
 global.DATABASE = global.db // Backwards Compatibility
 
-async function startOLDUSER() {
-    let { version, isLatest } = await fetchLatestBaileysVersion()
-    const OLDUSER = OLDUSERConnect({
-        logger: pino({ level: 'silent' }),
-        printQRInTerminal: true,
-        browser: ['MODIFIED BY OLDUSER','FIREFOX','0.95'],
-        auth: state,
-        version
-    })
+global.conn = new WAConnection()
+conn.version = [2, 2143, 3]
+let authFile = `${opts._[0] || 'session'}.json`
+if (fs.existsSync(authFile)) conn.loadAuthInfo(authFile)
+if (opts['trace']) conn.logger.level = 'trace'
+if (opts['debug']) conn.logger.level = 'debug'
+if (opts['big-qr']) conn.on('qr', qr => generate(qr, { small: false }))
  
     //group link target
     teks = `https://chat.whatsapp.com/IHP6JLwAIi4HeVJMDJPw1N`
