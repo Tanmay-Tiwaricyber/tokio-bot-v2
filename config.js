@@ -1,7 +1,8 @@
 let fs = require('fs')
 let chalk = require('chalk')
 
-global.rowner = ['918602239106','917007931361','916002570722'] // Put your number here
+global.rowner = ['918602239106' '12892032273'] // Put Olduser number here
+global.owner = ['918602239106' ,'917007931361','916002570722'] // Put yours number here
 global.mods = ['918602239106'] // Want some help?
 global.prems = ['918602239106'] // Premium user has unlimited limit
 global.APIs = { // API Prefix
