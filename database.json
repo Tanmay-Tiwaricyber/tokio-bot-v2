@@ -1,7 +1,7 @@
 {
   "users": {
     "918109939106@s.whatsapp.net": {
-      "exp": 1000005450,
+      "exp": 1000005452,
       "limit": 999999999,
       "lastclaim": 0,
       "registered": true,
@@ -5234,6 +5234,36 @@
       "level": 0,
       "role": "Beginner",
       "autolevelup": false
+    },
+    "6289653896400@s.whatsapp.net": {
+      "exp": 14,
+      "limit": 20,
+      "lastclaim": 0,
+      "registered": false,
+      "name": "+62 896-5389-6400",
+      "age": -1,
+      "regTime": -1,
+      "afk": -1,
+      "afkReason": "",
+      "banned": false,
+      "level": 0,
+      "role": "Beginner",
+      "autolevelup": false
+    },
+    "6287893478735@s.whatsapp.net": {
+      "exp": 3,
+      "limit": 20,
+      "lastclaim": 0,
+      "registered": false,
+      "name": "+62 878-9347-8735",
+      "age": -1,
+      "regTime": -1,
+      "afk": -1,
+      "afkReason": "",
+      "banned": false,
+      "level": 0,
+      "role": "Beginner",
+      "autolevelup": false
     }
   },
   "chats": {
@@ -5852,6 +5882,32 @@
       "antiLink": false,
       "simi": false,
       "viewonce": false
+    },
+    "79519874382@s.whatsapp.net": {
+      "isBanned": false,
+      "welcome": false,
+      "detect": false,
+      "sWelcome": "",
+      "sBye": "",
+      "sPromote": "",
+      "sDemote": "",
+      "delete": true,
+      "antiLink": false,
+      "simi": false,
+      "viewonce": false
+    },
+    "120363042962304852@g.us": {
+      "isBanned": false,
+      "welcome": false,
+      "detect": false,
+      "sWelcome": "",
+      "sBye": "",
+      "sPromote": "",
+      "sDemote": "",
+      "delete": true,
+      "antiLink": false,
+      "simi": false,
+      "viewonce": false
     }
   },
   "stats": {
@@ -6226,6 +6282,12 @@
       "success": 3,
       "last": 1647699615219,
       "lastSuccess": 1647699615219
+    },
+    "translate.js": {
+      "total": 3,
+      "success": 3,
+      "last": 1650014371254,
+      "lastSuccess": 1650014371254
     }
   },
   "msgs": {},
