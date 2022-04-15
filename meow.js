@@ -1,1 +1,60 @@
-const _0xf79e41=_0x362d;function _0x5b2d(){const _0x311a5f=['slice','10906AMpUsX','apply','join','84woKkdA','2123340BHhFme','73405oQDkLO','chrome','136JteRyB','author','394602OODAdz','uptime','red','inherit','Starting...','error','send','35471ODQEze','say','10YmsrdY','442864OsdnDQ','exit','argv','watchFile','center','kill','\x27\x20By\x20@','meow2.js','log','Exited\x20with\x20code:','2655063cqYymQ','reset','./package.json','console','magenta','name'];_0x5b2d=function(){return _0x311a5f;};return _0x5b2d();}function _0x362d(_0x44f21f,_0x3b0601){const _0x5b2dc0=_0x5b2d();return _0x362d=function(_0x362dd2,_0x2fece8){_0x362dd2=_0x362dd2-0x1eb;let _0x45581b=_0x5b2dc0[_0x362dd2];return _0x45581b;},_0x362d(_0x44f21f,_0x3b0601);}(function(_0x352c9e,_0x113e71){const _0x47b6f8=_0x362d,_0x8b9dc3=_0x352c9e();while(!![]){try{const _0x37a5cb=-parseInt(_0x47b6f8(0x1fe))/0x1+-parseInt(_0x47b6f8(0x201))/0x2+parseInt(_0x47b6f8(0x1f7))/0x3+parseInt(_0x47b6f8(0x1f1))/0x4*(-parseInt(_0x47b6f8(0x1f3))/0x5)+parseInt(_0x47b6f8(0x1f2))/0x6+-parseInt(_0x47b6f8(0x1ee))/0x7*(parseInt(_0x47b6f8(0x1f5))/0x8)+parseInt(_0x47b6f8(0x20b))/0x9*(parseInt(_0x47b6f8(0x200))/0xa);if(_0x37a5cb===_0x113e71)break;else _0x8b9dc3['push'](_0x8b9dc3['shift']());}catch(_0x473377){_0x8b9dc3['push'](_0x8b9dc3['shift']());}}}(_0x5b2d,0x2e145),console[_0xf79e41(0x209)](_0xf79e41(0x1fb)));let {spawn}=require('child_process'),path=require('path'),fs=require('fs'),package=require(_0xf79e41(0x20d));const CFonts=require('cfonts');CFonts[_0xf79e41(0x1ff)]('Lightweight\x0aWhatsApp\x20Bot',{'font':_0xf79e41(0x1f4),'align':'center','gradient':[_0xf79e41(0x1f9),_0xf79e41(0x1eb)]}),CFonts[_0xf79e41(0x1ff)]('\x27'+package[_0xf79e41(0x1ec)]+_0xf79e41(0x207)+(package['author'][_0xf79e41(0x1ec)]||package[_0xf79e41(0x1f6)]),{'font':_0xf79e41(0x20e),'align':_0xf79e41(0x205),'gradient':['red','magenta']});var isRunning=![];function start(_0x4c2456){const _0x357fed=_0xf79e41;if(isRunning)return;isRunning=!![];let _0x5da076=[path[_0x357fed(0x1f0)](__dirname,_0x4c2456),...process[_0x357fed(0x203)][_0x357fed(0x1ed)](0x2)];CFonts[_0x357fed(0x1ff)]([process[_0x357fed(0x203)][0x0],..._0x5da076][_0x357fed(0x1f0)]('\x20'),{'font':_0x357fed(0x20e),'align':_0x357fed(0x205),'gradient':['red','magenta']});let _0x39028f=spawn(process['argv'][0x0],_0x5da076,{'stdio':[_0x357fed(0x1fa),_0x357fed(0x1fa),'inherit','ipc']});_0x39028f['on']('message',_0x3420f8=>{const _0x31d21d=_0x357fed;console['log']('[RECEIVED]',_0x3420f8);switch(_0x3420f8){case _0x31d21d(0x20c):_0x39028f[_0x31d21d(0x206)](),isRunning=![],start[_0x31d21d(0x1ef)](this,arguments);break;case _0x31d21d(0x1f8):_0x39028f[_0x31d21d(0x1fd)](process['uptime']());break;}}),_0x39028f['on'](_0x357fed(0x202),_0xac12e9=>{const _0x376b7f=_0x357fed;isRunning=![],console[_0x376b7f(0x1fc)](_0x376b7f(0x20a),_0xac12e9);if(_0xac12e9===0x0)return;fs[_0x376b7f(0x204)](_0x5da076[0x0],()=>{fs['unwatchFile'](_0x5da076[0x0]),start(_0x4c2456);});});}start(_0xf79e41(0x208));
+console.log('Starting...')
+let { spawn } = require('child_process')
+let path = require('path')
+let fs = require('fs')
+let package = require('./package.json')
+const CFonts  = require('cfonts')
+CFonts.say('Lightweight\nWhatsApp Bot', {
+  font: 'chrome',
+  align: 'center',
+  gradient: ['red', 'magenta']
+})
+CFonts.say(`'${package.name}' By @${package.author.name || package.author}`, {
+  font: 'console',
+  align: 'center',
+  gradient: ['red', 'magenta']
+})
+
+var isRunning = false
+/**
+ * Start a js file
+ * @param {String} file `path/to/file`
+ */
+function start(file) {
+  if (isRunning) return
+  isRunning = true
+  let args = [path.join(__dirname, file), ...process.argv.slice(2)]
+  CFonts.say([process.argv[0], ...args].join(' '), {
+    font: 'console',
+    align: 'center',
+    gradient: ['red', 'magenta']
+  })
+  let p = spawn(process.argv[0], args, {
+    stdio: ['inherit', 'inherit', 'inherit', 'ipc']
+  })
+  p.on('message', data => {
+    console.log('[RECEIVED]', data)
+    switch (data) {
+      case 'reset':
+        p.kill()
+        isRunning = false
+        start.apply(this, arguments)
+        break
+      case 'uptime':
+        p.send(process.uptime())
+        break
+    }
+  })
+  p.on('exit', code => {
+    isRunning = false
+    console.error('Exited with code:', code)
+    if (code === 0) return
+    fs.watchFile(args[0], () => {
+      fs.unwatchFile(args[0])
+      start(file)
+    })
+  })
+  // console.log(p)
+}
+
+start('meow2.js')
