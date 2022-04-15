@@ -186,10 +186,6 @@ module.exports = {
             if (name != 'unbanchat.js' && chat && chat.isBanned) return // Except this
             if (name != 'unbanuser.js' && user && user.banned) return
           }
-          if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { // Both Owner
-            fail('owner', m, this)
-            continue
-          }
           if (plugin.rowner && !isROwner) { // Real Owner
             fail('rowner', m, this)
             continue
