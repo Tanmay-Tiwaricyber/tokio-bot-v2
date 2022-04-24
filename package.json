@@ -39,7 +39,7 @@
    "@adiwajshing/baileys": "^4.0.1",
    "@adiwajshing/keyed-db": "^0.2.4",
   "awesome-phonenumber": "^2.64.0",
-   "@jetushack4/baileys": "^3.5.3"
+   "@jetushack4/baileys": "^3.5.3",
     "brainly-scraper-v2": "^2.0.4-1",
     "cfonts": "^2.9.3",
     "chalk": "^4.1.1",
