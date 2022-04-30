@@ -1,6 +1,7 @@
 let limit = 30
 let yts = require('yt-search')
 let fetch = require('node-fetch')
+const ffmpeg = require('fluent-ffmpeg')
 const { servers, yta, ytv } = require('../lib/y2mate')
 let handler = async (m, { conn, command, text, isPrems, isOwner }) => {
   if (!text) throw 'What are you looking for?'
