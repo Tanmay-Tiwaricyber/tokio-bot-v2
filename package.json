@@ -36,10 +36,8 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-   "@adiwajshing/baileys": "^4.1.0",
-   "@adiwajshing/keyed-db": "^0.2.4",
-  "awesome-phonenumber": "^2.64.0",
-   "@jetushack4/baileys": "^3.5.3",
+    "@adiwajshing/baileys": "^3.5.3",
+    "awesome-phonenumber": "^2.54.0",
     "brainly-scraper-v2": "^2.0.4-1",
     "cfonts": "^2.9.3",
     "chalk": "^4.1.1",
