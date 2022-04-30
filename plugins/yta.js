@@ -1,3 +1,4 @@
+const ffmpeg = require('fluent-ffmpeg')
 let limit = 30
 const { servers, yta } = require('../lib/y2mate')
 let handler = async (m, { conn, args, isPrems, isOwner }) => {
