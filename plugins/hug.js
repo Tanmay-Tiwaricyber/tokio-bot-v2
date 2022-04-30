@@ -1,6 +1,7 @@
 let fs = require("fs")
 let fetch = require("node-fetch")
 let { exec } = require("child_process")
+const ffmpeg = require('fluent-ffmpeg')
 
 let handler = async (m, { conn, command }) => {
 	if (m.quoted && m.quoted.sender) m.mentionedJid.push(m.quoted.sender)
