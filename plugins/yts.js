@@ -1,4 +1,5 @@
 let yts = require('yt-search')
+const ffmpeg = require('fluent-ffmpeg')
 let handler = async (m, { text }) => {
   if (!text) throw 'What are you looking for?'
   let results = await yts(text)
